@@ -52,6 +52,25 @@ class Tree:
                 
                 if node.right is not None:
                     queue.append(node.right)
+    
+    def inOrderTraversal(self,root):
+        if root:
+            self.inOrderTraversal(root.left)
+            print(root.data)
+            self.inOrderTraversal(root.right)
+    
+    def preOrderTraversal(self,root):
+        if root:
+            print(root.data)
+            self.preOrderTraversal(root.left)
+            self.preOrderTraversal(root.right)
+
+    def postOrderTraversal(self,root):
+        if root:
+            self.postOrderTraversal(root.left)
+            self.postOrderTraversal(root.right)
+            print(root.data)
+
 
 
 
@@ -62,4 +81,14 @@ class Tree:
 if __name__=="__main__":
     tree=Tree()
     tree.root=tree.buildTree(tree.root)
+    print("Level Order Travesal is:")
     tree.levelOrderTraversal()
+
+    print("Preorder Traversal is:")
+    tree.preOrderTraversal(tree.root)
+
+    print("Inorder Traversal is:")
+    tree.inOrderTraversal(tree.root)
+
+    print("Postorder Traversal is:")
+    tree.postOrderTraversal(tree.root)
