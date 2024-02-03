@@ -26,6 +26,34 @@ class Tree:
         root.right=self.buildTree(root.right)
 
         return root
+    
+    #Level Order Traversal
+
+    def levelOrderTraversal(self):
+        root=self.root
+        if root is None:
+            return 
+
+        queue=[]
+        queue.append(root)
+        queue.append(None)
+
+        while(queue):
+            
+            node=queue.pop(0)
+            if node is None:
+                print()
+                if queue:
+                    queue.append(None)
+            else:
+                print(node.data, end=" ")
+                if node.left is not None:
+                    queue.append(node.left)
+                
+                if node.right is not None:
+                    queue.append(node.right)
+
+
 
 
 
@@ -34,3 +62,4 @@ class Tree:
 if __name__=="__main__":
     tree=Tree()
     tree.root=tree.buildTree(tree.root)
+    tree.levelOrderTraversal()
