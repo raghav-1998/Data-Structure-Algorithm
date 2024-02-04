@@ -72,7 +72,11 @@ class Tree:
             print(root.data)
 
 
-
+    def heightOfTree(self,root):
+        if not root:
+            return 0
+        
+        return 1+ max(self.heightOfTree(root.left),self.heightOfTree(root.right))
 
 
 
@@ -92,3 +96,5 @@ if __name__=="__main__":
 
     print("Postorder Traversal is:")
     tree.postOrderTraversal(tree.root)
+
+    print("Height of Tree is:",tree.heightOfTree(tree.root))
